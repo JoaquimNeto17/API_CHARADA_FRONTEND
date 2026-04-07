@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Charadas • Enigma do Dia</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Cabeçalho -->
+        <header class="header">
+            <span class="emoji-icon">❓</span>
+            <h1 class="title">charadas</h1>
+            <p class="subtitle">vire o card e desvende o enigma</p>
+        </header>
+
+        <!-- Seletor de modo -->
+        <div class="mode-selector">
+            <button class="mode-btn" id="btnModeDaily">
+                <span>📅</span> Charada do Dia
+            </button>
+            <button class="mode-btn" id="btnModeRandom">
+                <span>🎲</span> Aleatória
+            </button>
+        </div>
+
+        <!-- Card 3D -->
+        <div class="card-wrapper">
+            <div class="card" id="cardInner">
+                <!-- Frente - Pergunta -->
+                <div class="card-face front">
+                    <div class="face-header">
+                        <span class="badge" id="badgeTipo">🎲 pergunta</span>
+                    </div>
+                    <p class="question" id="pergunta">Carregando...</p>
+                    <div class="hint">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M12 4v16M8 12l4 4 4-4"/>
+                        </svg>
+                        clique para virar
+                    </div>
+                </div>
+
+                <!-- Verso - Resposta -->
+                <div class="card-face back">
+                    <div class="face-header">
+                        <span class="badge badge-resposta">🔓 resposta</span>
+                    </div>
+                    <p class="answer" id="resposta"></p>
+                    <div class="hint back-hint">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M12 4v16M8 12l4 4 4-4"/>
+                        </svg>
+                        clique para voltar
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Botão principal -->
+        <button class="btn-primary" id="btnNova">
+            <span id="btnIcon">🎲</span>
+            <span id="btnText">Nova Charada</span>
+        </button>
+
+        <!-- Painel de informações -->
+        <div class="info-panel" id="infoPanel">
+            <span id="infoText">✨ Modo aleatório ativo</span>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
