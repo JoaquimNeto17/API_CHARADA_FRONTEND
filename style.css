@@ -271,6 +271,7 @@ body {
     border-radius: 40px;
     display: inline-block;
     backdrop-filter: blur(4px);
+    transition: all 0.2s ease;
 }
 
 .badge-resposta {
@@ -289,6 +290,7 @@ body {
     text-align: center;
     margin: 0.8rem 0;
     word-break: break-word;
+    transition: opacity 0.2s ease;
 }
 
 .back .answer {
@@ -304,6 +306,7 @@ body {
     word-break: break-word;
     line-height: 1.3;
     margin: 0.8rem 0;
+    transition: opacity 0.2s ease;
 }
 
 .hint {
@@ -393,32 +396,128 @@ body {
     border: 1px solid rgba(230, 126, 34, 0.2);
 }
 
-/* ========== ANIMAÇÕES ========== */
-@keyframes fadeInDown {
-    from {
-        opacity: 0;
-        transform: translateY(-20px);
+/* ========== PEQUENAS ANIMAÇÕES SUTIS ========== */
+
+/* Animação suave ao atualizar texto */
+@keyframes gentleFade {
+    0% {
+        opacity: 0.7;
+        transform: scale(0.98);
     }
-    to {
+    100% {
         opacity: 1;
-        transform: translateY(0);
+        transform: scale(1);
     }
 }
 
-@keyframes fadeInUp {
-    from {
-        opacity: 0;
-        transform: translateY(20px);
+.text-update {
+    animation: gentleFade 0.25s cubic-bezier(0.2, 0.9, 0.4, 1.1);
+}
+
+/* Pulsinho suave no badge */
+.badge-pulse {
+    animation: badgeGentle 0.3s ease;
+}
+
+@keyframes badgeGentle {
+    0% {
+        transform: scale(1);
     }
-    to {
-        opacity: 1;
-        transform: translateY(0);
+    50% {
+        transform: scale(1.08);
+        color: #f39c12;
+    }
+    100% {
+        transform: scale(1);
     }
 }
 
-/* Efeito de brilho no card ao passar o mouse */
+/* Animação do ícone do botão */
+@keyframes iconSpin {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(15deg);
+    }
+}
+
+.btn-icon-animate {
+    animation: iconWiggle 0.3s ease;
+}
+
+@keyframes iconWiggle {
+    0%, 100% {
+        transform: rotate(0deg);
+    }
+    25% {
+        transform: rotate(10deg);
+    }
+    75% {
+        transform: rotate(-5deg);
+    }
+}
+
+/* Efeito de clique suave no card */
+.card-click {
+    animation: cardGentleTap 0.15s ease;
+}
+
+@keyframes cardGentleTap {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(0.98);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+/* Brilho suave no hover do badge */
+.badge:hover {
+    transform: translateY(-1px);
+    background: rgba(230, 126, 34, 0.2);
+}
+
+/* Transição suave para os botões de modo */
+.mode-btn {
+    transition: all 0.25s ease;
+}
+
+/* Animação sutil de entrada para o card */
+.card {
+    transition: transform 0.6s cubic-bezier(0.23, 1, 0.32, 1), box-shadow 0.3s ease;
+}
+
 .card-wrapper:hover .card-face {
     box-shadow: 0 35px 55px -20px rgba(0, 0, 0, 0.6);
+    transition: box-shadow 0.3s ease;
+}
+
+/* Efeito suave no ícone do cabeçalho */
+.emoji-icon {
+    transition: transform 0.2s ease;
+}
+
+.emoji-icon:hover {
+    transform: scale(1.1);
+}
+
+/* Animação de loading suave */
+@keyframes loadingPulse {
+    0%, 100% {
+        opacity: 0.6;
+    }
+    50% {
+        opacity: 1;
+    }
+}
+
+.loading .question,
+.loading .answer {
+    animation: loadingPulse 1s ease infinite;
 }
 
 /* Responsivo - manter tudo visível sem scroll */
@@ -443,5 +542,28 @@ body {
     }
     .emoji-icon {
         font-size: 1.8rem;
+    }
+}
+
+/* ========== ANIMAÇÕES PRINCIPAIS ========== */
+@keyframes fadeInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
     }
 }
